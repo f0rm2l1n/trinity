@@ -110,6 +110,7 @@ int main(int argc, char* argv[])
 	page_size = getpagesize();
 	num_online_cpus = sysconf(_SC_NPROCESSORS_ONLN);
 	max_children = num_online_cpus * 4;	/* possibly overridden in params. */
+	// 即默认的子进程数目为CPU数目*4
 
 	select_syscall_tables();
 
