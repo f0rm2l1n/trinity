@@ -80,4 +80,5 @@ struct syscallentry syscall_mremap = {
 	.arg5name = "new_addr",
 	.group = GROUP_VM,
 	.post = post_mremap,
+	.extgroup = GROUP_PM,
 };

@@ -10,4 +10,5 @@ struct syscallentry syscall_ustat = {
 	.arg2name = "ubuf",
 	.arg2type = ARG_ADDRESS,
 	.group = GROUP_VFS,
+	.extgroup = GROUP_MISC,
 };

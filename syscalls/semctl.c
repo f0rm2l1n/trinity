@@ -10,4 +10,5 @@ struct syscallentry syscall_semctl = {
 	.arg2name = "semnum",
 	.arg3name = "cmd",
 	.arg4name = "arg",
+	.extgroup = GROUP_PM,
 };

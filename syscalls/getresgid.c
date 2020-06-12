@@ -12,6 +12,7 @@ struct syscallentry syscall_getresgid = {
 	.arg2type = ARG_ADDRESS,
 	.arg3name = "sgid",
 	.arg3type = ARG_ADDRESS,
+	.extgroup = GROUP_PM,
 };
 
 

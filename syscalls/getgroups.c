@@ -10,6 +10,7 @@ struct syscallentry syscall_getgroups = {
 	.arg2type = ARG_ADDRESS,
 	.arg2name = "grouplist",
 	.rettype = RET_BORING,
+	.extgroup = GROUP_PM,
 };
 
 

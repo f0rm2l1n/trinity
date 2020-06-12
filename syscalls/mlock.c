@@ -22,6 +22,7 @@ struct syscallentry syscall_mlock = {
 	.arg2name = "len",
 	.group = GROUP_VM,
 	.sanitise = sanitise_mlock,
+	.extgroup = GROUP_PM,
 };
 
 /*

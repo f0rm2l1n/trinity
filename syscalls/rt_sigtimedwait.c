@@ -16,4 +16,5 @@ struct syscallentry syscall_rt_sigtimedwait = {
 	.arg4name = "sigsetsize",
 	.arg4type = ARG_ADDRESS,
 	.flags = NEED_ALARM,
+	.extgroup = GROUP_PM,
 };

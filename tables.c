@@ -530,6 +530,25 @@ int setup_syscall_group(unsigned int group)
 		return setup_syscall_group_uniarch(group);
 }
 
+int setup_ext_syscall_group(unsigned int extgroup)
+{
+	unsigned int i;
+
+	for_each_syscall(i) {
+		if (syscalls[i].entry->extgroup == extgroup)
+			activate_syscall(i);
+	}
+
+	if (shm->nr_active_syscalls == 0) {
+		outputstd("No syscalls found in group\n");
+		return FALSE;
+	} else {
+		outputstd("Found %d syscalls in group\n", shm->nr_active_syscalls);
+	}
+
+	return TRUE;
+}
+
 const char * print_syscall_name(unsigned int callno, bool is32bit)
 {
 	const struct syscalltable *table;
@@ -608,6 +627,8 @@ static void decide_if_active(void)
 		return;
 	if (desired_group != GROUP_NONE)
 		return;
+	if (ext_desired_group != GROUP_NONE)
+		return;
 
 	mark_all_syscalls_active();
 }
@@ -621,6 +642,13 @@ int munge_tables(void)
 		unsigned int ret;
 
 		ret = setup_syscall_group(desired_group);
+		if (ret == FALSE)
+			return FALSE;
+	}
+
+	if (ext_desired_group != GROUP_NONE) {
+		unsigned int ret;
+		ret = setup_ext_syscall_group(ext_desired_group);
 		if (ret == FALSE)
 			return FALSE;
 	}

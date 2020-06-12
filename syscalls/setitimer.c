@@ -12,4 +12,5 @@ struct syscallentry syscall_setitimer = {
 	.arg2type = ARG_ADDRESS,
 	.arg3name = "ovalue",
 	.arg3type = ARG_ADDRESS,
+	.extgroup = GROUP_MISC,
 };

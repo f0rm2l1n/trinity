@@ -9,4 +9,5 @@ struct syscallentry syscall_getrusage = {
 	.arg1name = "who",
 	.arg2name = "ru",
 	.arg2type = ARG_ADDRESS,
+	.extgroup = GROUP_PM,
 };

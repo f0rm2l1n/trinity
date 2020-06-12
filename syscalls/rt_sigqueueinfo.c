@@ -12,4 +12,5 @@ struct syscallentry syscall_rt_sigqueueinfo = {
 	.arg3name = "uinfo",
 	.arg3type = ARG_ADDRESS,
 	.flags = AVOID_SYSCALL,	// needs more signal handling.
+	.extgroup = GROUP_PM,
 };

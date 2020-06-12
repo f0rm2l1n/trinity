@@ -8,4 +8,5 @@ struct syscallentry syscall_sync = {
 	.num_args = 0,
 	.group = GROUP_VFS,
 	.flags = EXPENSIVE,
+	.extgroup = GROUP_MISC,
 };

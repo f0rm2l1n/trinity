@@ -8,6 +8,7 @@ struct syscallentry syscall_setfsgid = {
 	.num_args = 1,
 	.arg1name = "gid",
 	.group = GROUP_VFS,
+	.extgroup = GROUP_PM,
 };
 
 /*

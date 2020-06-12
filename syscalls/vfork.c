@@ -8,4 +8,5 @@ struct syscallentry syscall_vfork = {
 	.num_args = 1,
 	.flags = AVOID_SYSCALL, // No args, confuses fuzzer
 	.arg1name = "regs",
+	.extgroup = GROUP_PM,
 };

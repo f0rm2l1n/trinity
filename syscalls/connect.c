@@ -24,4 +24,5 @@ struct syscallentry syscall_connect = {
 	.rettype = RET_ZERO_SUCCESS,
 	.flags = NEED_ALARM,
 	.sanitise = sanitise_connect,
+	.extgroup = GROUP_NA,
 };

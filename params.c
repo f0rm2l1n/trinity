@@ -50,6 +50,8 @@ bool show_stats = FALSE;
 bool user_set_seed = FALSE;
 
 unsigned char desired_group = GROUP_NONE;
+unsigned char ext_desired_group = GROUP_NONE;
+
 
 char *specific_domain_optarg = NULL;
 
@@ -81,7 +83,7 @@ static void usage(void)
 	outputerr(" --exclude,-x: don't call a specific syscall\n");
 	enable_disable_fd_usage();
 	outputerr(" --ftrace-dump-file: specify file that ftrace buffer gets dumped to if kernel becomes tainted.\n");
-	outputerr(" --group,-g = {vfs,vm}: only run syscalls from a certain group.\n");
+	outputerr(" --group,-g = {vfs,vm,pm,ipc,misc}: only run syscalls from a certain group.\n");
 	outputerr(" --ioctls,-I: list all ioctls.\n");
 	outputerr(" --kernel_taint, -T: controls which kernel taint flags should be considered, for more details refer to README file. \n");
 	outputerr(" --list,-L: list all syscalls known on this architecture.\n");
@@ -228,6 +230,12 @@ void parse_args(int argc, char *argv[])
 				desired_group = GROUP_VM;
 			if (!strcmp(optarg, "vfs"))
 				desired_group = GROUP_VFS;
+			if (!strcmp(optarg, "pm"))
+				ext_desired_group = GROUP_PM;
+			if (!strcmp(optarg, "ipc"))
+				ext_desired_group = GROUP_IPC;
+			if (!strcmp(optarg, "misc"))
+				ext_desired_group = GROUP_MISC;
 			break;
 
 		/* Show help */

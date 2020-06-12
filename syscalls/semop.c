@@ -10,4 +10,5 @@ struct syscallentry syscall_semop = {
 	.arg2name = "tsops",
 	.arg2type = ARG_ADDRESS,
 	.arg3name = "nsops",
+	.extgroup = GROUP_PM,
 };

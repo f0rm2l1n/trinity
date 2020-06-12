@@ -30,4 +30,5 @@ struct syscallentry syscall_socketpair = {
 	.arg4type = ARG_ADDRESS,
 	.sanitise = sanitise_socketpair,
 	.post = post_socketpair,
+	.extgroup = GROUP_NA,
 };

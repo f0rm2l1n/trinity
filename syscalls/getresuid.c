@@ -12,6 +12,7 @@ struct syscallentry syscall_getresuid = {
 	.arg2type = ARG_ADDRESS,
 	.arg3name = "suid",
 	.arg3type = ARG_ADDRESS,
+	.extgroup = GROUP_PM,
 };
 
 /*

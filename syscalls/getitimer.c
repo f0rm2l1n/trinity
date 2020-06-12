@@ -10,4 +10,5 @@ struct syscallentry syscall_getitimer = {
 	.arg2name = "value",
 	.arg2type = ARG_ADDRESS,
 	.rettype = RET_ZERO_SUCCESS,
+	.extgroup = GROUP_MISC,
 };

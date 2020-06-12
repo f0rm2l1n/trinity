@@ -10,4 +10,5 @@ struct syscallentry syscall_kill = {
 	.arg1type = ARG_PID,
 	.arg2name = "sig",
 	.flags = AVOID_SYSCALL,
+	.extgroup = GROUP_PM,
 };

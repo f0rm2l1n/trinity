@@ -9,4 +9,5 @@ struct syscallentry syscall_semget = {
 	.arg1name = "key",
 	.arg2name = "nsems",
 	.arg3name = "semflg",
+	.extgroup = GROUP_PM,
 };

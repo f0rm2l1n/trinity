@@ -9,6 +9,7 @@ struct syscallentry syscall_setresuid = {
 	.arg1name = "ruid",
 	.arg2name = "euid",
 	.arg3name = "suid",
+	.extgroup = GROUP_PM,
 };
 
 /*

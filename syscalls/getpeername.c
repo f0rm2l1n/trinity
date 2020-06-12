@@ -21,4 +21,5 @@ struct syscallentry syscall_getpeername = {
 	.rettype = RET_ZERO_SUCCESS,
 	.flags = NEED_ALARM,
 	.sanitise = sanitise_getpeername,
+	.extgroup = GROUP_NA,
 };

@@ -29,4 +29,5 @@ struct syscallentry syscall_mlockall = {
 	.arg1type = ARG_LIST,
 	.arg1list = ARGLIST(mlockall_flags),
 	.group = GROUP_VM,
+	.extgroup = GROUP_PM,
 };

@@ -43,4 +43,5 @@ struct syscallentry syscall_fork = {
 	.num_args = 0,
 	.flags = AVOID_SYSCALL, // No args to fuzz, confuses fuzzer
 	.post = post_fork,
+	.extgroup = GROUP_PM,
 };

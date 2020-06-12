@@ -8,6 +8,7 @@ struct syscallentry syscall_setregid = {
 	.num_args = 2,
 	.arg1name = "rgid",
 	.arg2name = "egid",
+	.extgroup = GROUP_PM,
 };
 
 /*

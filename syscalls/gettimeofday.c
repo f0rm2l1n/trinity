@@ -10,4 +10,5 @@ struct syscallentry syscall_gettimeofday = {
 	.arg1type = ARG_ADDRESS,
 	.arg2name = "tz",
 	.arg2type = ARG_ADDRESS,
+	.extgroup = GROUP_MISC,
 };

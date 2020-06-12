@@ -37,6 +37,7 @@ struct syscallentry syscall_recv = {
 	.arg4list = ARGLIST(recv_flags),
 	.flags = NEED_ALARM,
 	.sanitise = sanitise_recv,
+	.extgroup = GROUP_NA,
 };
 
 
@@ -63,6 +64,7 @@ struct syscallentry syscall_recvfrom = {
 	.arg6type = ARG_SOCKADDRLEN,
 	.flags = NEED_ALARM,
 	.sanitise = sanitise_recv,	// same as recv
+	.extgroup = GROUP_NA,
 };
 
 
@@ -104,4 +106,5 @@ struct syscallentry syscall_recvmmsg = {
 	.arg5type = ARG_ADDRESS,
 	.flags = NEED_ALARM,
 	.sanitise = sanitise_recv,	// same as recv
+	.extgroup = GROUP_NA,
 };

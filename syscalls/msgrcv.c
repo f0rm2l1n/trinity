@@ -29,4 +29,5 @@ struct syscallentry syscall_msgrcv = {
 	.arg5list = ARGLIST(msgrcv_flags),
 	.flags = IGNORE_ENOSYS | NEED_ALARM,
 	.sanitise = sanitise_msgrcv,
+	.extgroup = GROUP_IPC,
 };

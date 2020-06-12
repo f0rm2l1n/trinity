@@ -105,6 +105,7 @@ struct syscallentry syscall_execve = {
 	.post = post_execve,
 	.group = GROUP_VFS,
 	.flags = EXTRA_FORK,
+	.extgroup = GROUP_PM,
 };
 
 static unsigned long execveat_flags[] = {

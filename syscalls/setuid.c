@@ -17,6 +17,7 @@ struct syscallentry syscall_setuid = {
 	.num_args = 1,
 	.arg1name = "uid",
 	.sanitise = sanitise_setuid,
+	.extgroup = GROUP_PM,
 };
 
 /*

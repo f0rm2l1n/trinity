@@ -141,6 +141,7 @@ struct syscallentry {
 	const struct arglist arg6list;
 
 	const unsigned int group;
+	const unsigned int extgroup;
 	const int rettype;
 };
 
@@ -158,6 +159,10 @@ struct syscallentry {
 #define GROUP_NONE	0
 #define GROUP_VM	1
 #define GROUP_VFS	2
+#define GROUP_PM	1
+#define GROUP_NA	2
+#define GROUP_IPC	3
+#define GROUP_MISC	4
 
 struct syscalltable {
 	struct syscallentry *entry;

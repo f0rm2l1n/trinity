@@ -8,6 +8,7 @@ struct syscallentry syscall_setfsuid = {
 	.num_args = 1,
 	.arg1name = "uid",
 	.group = GROUP_VFS,
+	.extgroup = GROUP_PM,
 };
 
 

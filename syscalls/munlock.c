@@ -19,4 +19,5 @@ struct syscallentry syscall_munlock = {
 	.arg2name = "len",
 	.group = GROUP_VM,
 	.sanitise = sanitise_munlock,
+	.extgroup = GROUP_PM,
 };

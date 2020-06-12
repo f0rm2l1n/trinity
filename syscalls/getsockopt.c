@@ -22,4 +22,5 @@ struct syscallentry syscall_getsockopt = {
 	.arg5type = ARG_LEN,
 	.flags = NEED_ALARM,
 	.sanitise = sanitise_getsockopt,
+	.extgroup = GROUP_NA,
 };

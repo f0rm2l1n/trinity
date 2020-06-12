@@ -69,4 +69,5 @@ struct syscallentry syscall_select = {
 	.arg5name = "tvp",
 	.sanitise = sanitise_select,
 	.post = post_select,
+	.extgroup = GROUP_PM,
 };

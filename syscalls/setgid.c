@@ -7,6 +7,7 @@ struct syscallentry syscall_setgid = {
 	.name = "setgid",
 	.num_args = 1,
 	.arg1name = "gid",
+	.extgroup = GROUP_PM,
 };
 
 

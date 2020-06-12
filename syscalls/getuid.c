@@ -6,6 +6,7 @@
 struct syscallentry syscall_getuid = {
 	.name = "getuid",
 	.num_args = 0,
+	.extgroup = GROUP_PM,
 };
 
 

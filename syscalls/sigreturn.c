@@ -9,4 +9,5 @@ struct syscallentry syscall_sigreturn = {
 	.flags = AVOID_SYSCALL, // Confuses the signal state and causes the fuzzer to hang with timeout not firing
 	.arg1name = "regs",
 	.arg1type = ARG_ADDRESS,
+	.extgroup = GROUP_PM,
 };

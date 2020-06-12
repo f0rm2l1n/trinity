@@ -44,6 +44,7 @@ struct syscallentry syscall_mprotect = {
 	.sanitise = sanitise_mprotect,
 	.group = GROUP_VM,
 	.post = post_mprotect,
+	.extgroup = GROUP_PM,
 };
 
 struct syscallentry syscall_pkey_mprotect = {

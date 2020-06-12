@@ -10,6 +10,7 @@ struct syscallentry syscall_statfs = {
 	.arg1type = ARG_PATHNAME,
 	.arg2name = "buf",
 	.arg2type = ARG_ADDRESS,
+	.extgroup = GROUP_MISC,
 };
 
 /*

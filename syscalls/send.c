@@ -83,6 +83,7 @@ struct syscallentry syscall_send = {
 	.arg4list = ARGLIST(sendflags),
 	.sanitise = sanitise_send,
 	.post = post_send,
+	.extgroup = GROUP_NA,
 };
 
 
@@ -110,6 +111,7 @@ struct syscallentry syscall_sendto = {
 	.flags = NEED_ALARM,
 	.sanitise = sanitise_send,	// same as send
 	.post = post_send,
+	.extgroup = GROUP_NA,
 };
 
 /*
@@ -181,6 +183,7 @@ struct syscallentry syscall_sendmsg = {
 	.sanitise = sanitise_sendmsg,
 	.post = post_sendmsg,
 	.flags = NEED_ALARM,
+	.extgroup = GROUP_NA,
 };
 /*
  * SYSCALL_DEFINE4(sendmmsg, int, fd, struct mmsghdr __user *, mmsg,

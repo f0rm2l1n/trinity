@@ -26,4 +26,5 @@ struct syscallentry syscall_shmget = {
 	.arg2type = ARG_LEN,
 	.arg3name = "shmflg",
 	.post = post_shmget,
+	.extgroup = GROUP_IPC,
 };

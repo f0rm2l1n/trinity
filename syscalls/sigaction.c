@@ -54,4 +54,5 @@ struct syscallentry syscall_sigaction = {
 	.arg2type = ARG_ADDRESS,
 	.arg3name = "oact",
 	.flags = AVOID_SYSCALL,
+	.extgroup = GROUP_PM,
 };

@@ -8,4 +8,5 @@ struct syscallentry syscall_time = {
 	.num_args = 1,
 	.arg1name = "tloc",
 	.arg1type = ARG_ADDRESS,
+	.extgroup = GROUP_MISC,
 };

@@ -6,4 +6,5 @@
 struct syscallentry syscall_setsid = {
 	.name = "setsid",
 	.num_args = 0,
+	.extgroup = GROUP_PM,
 };

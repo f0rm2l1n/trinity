@@ -7,4 +7,5 @@ struct syscallentry syscall_getppid = {
 	.name = "getppid",
 	.num_args = 0,
 	.rettype = RET_PID_T,
+	.extgroup = GROUP_PM,
 };

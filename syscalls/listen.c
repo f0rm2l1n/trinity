@@ -10,4 +10,5 @@ struct syscallentry syscall_listen = {
 	.arg1type = ARG_FD,
 	.arg2name = "backlog",
 	.flags = NEED_ALARM,
+	.extgroup = GROUP_NA,
 };

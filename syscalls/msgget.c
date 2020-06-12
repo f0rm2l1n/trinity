@@ -8,4 +8,5 @@ struct syscallentry syscall_msgget = {
 	.num_args = 2,
 	.arg1name = "key",
 	.arg2name = "msgflg",
+	.extgroup = GROUP_IPC,
 };

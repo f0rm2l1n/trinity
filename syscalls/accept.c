@@ -24,6 +24,7 @@ struct syscallentry syscall_accept = {
 	.rettype = RET_FD,
 	.flags = NEED_ALARM,
 	.sanitise = sanitise_accept,
+	.extgroup = GROUP_NA,
 };
 
 

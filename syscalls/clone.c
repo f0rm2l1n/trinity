@@ -38,6 +38,7 @@ struct syscallentry syscall_clone = {
 	.arg5name = "regs",
 	.arg5type = ARG_ADDRESS,
 	.rettype = RET_PID_T,
+	.extgroup = GROUP_PM,
 };
 
 

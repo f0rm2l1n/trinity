@@ -16,6 +16,7 @@ struct syscallentry syscall_fstatfs = {
 	.rettype = RET_ZERO_SUCCESS,
 	.flags = NEED_ALARM,
 	.group = GROUP_VFS,
+	.extgroup = GROUP_MISC,
 };
 
 

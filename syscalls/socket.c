@@ -144,4 +144,5 @@ struct syscallentry syscall_socket = {
 	.arg3name = "protocol",
 	.sanitise = sanitise_socket,
 	.post = post_socket,
+	.extgroup = GROUP_NA,
 };

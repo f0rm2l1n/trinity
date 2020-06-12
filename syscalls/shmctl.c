@@ -19,4 +19,5 @@ struct syscallentry syscall_shmctl = {
 	.arg2list = ARGLIST(shmctl_ops),
 	.arg3name = "buf",
 	.arg3type = ARG_ADDRESS,
+	.extgroup = GROUP_IPC,
 };

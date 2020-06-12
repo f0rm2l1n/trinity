@@ -43,6 +43,7 @@ extern bool do_syslog;
 extern int logging;
 extern char *logging_args;
 extern unsigned char desired_group;
+extern unsigned char ext_desired_group;
 extern bool user_set_seed;
 extern char *victim_path;
 extern bool random_selection;

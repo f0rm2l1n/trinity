@@ -9,4 +9,5 @@ struct syscallentry syscall_setpriority = {
 	.arg1name = "which",
 	.arg2name = "who",
 	.arg3name = "niceval",
+	.extgroup = GROUP_PM,
 };

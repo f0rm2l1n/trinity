@@ -10,4 +10,5 @@ struct syscallentry syscall_shmat = {
 	.arg2name = "shmaddr",
 	.arg2type = ARG_ADDRESS,
 	.arg3name = "shmflg",
+	.extgroup = GROUP_IPC,
 };
