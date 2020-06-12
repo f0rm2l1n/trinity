@@ -43,7 +43,6 @@ static const char *reasons[NUM_EXIT_REASONS] = {
   "fork() failure",
   "some kind of locking catastrophe",
   "error while opening logfiles",
-  "padding",
   "reach the time you damm set",
 };
 
