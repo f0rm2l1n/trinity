@@ -709,6 +709,11 @@ void main_loop(void)
 {
 	fork_children();
 
+	// start timing
+	time_t fuzz_start_time;
+	if (user_set_diedtime)
+		fuzz_start_time = time(NULL);
+
 	while (shm->exit_reason == STILL_RUNNING) {
 
 		handle_children();
@@ -727,6 +732,16 @@ void main_loop(void)
 		if (syscalls_todo && (shm->stats.op_count >= syscalls_todo)) {
 			output(0, "Reached limit %lu. Telling children to exit.\n", syscalls_todo);
 			panic(EXIT_REACHED_COUNT);
+		}
+
+		// check timing
+		if (user_set_diedtime) {
+			time_t fuzz_check_time = time(NULL);
+			unsigned long delay = fuzz_check_time - fuzz_start_time;
+			if (delay / 60 > diedtime) {
+				output(0, "Reached time limit %lu. Telling children to exit.\n", diedtime);
+				panic(EXIT_REACHED_TIME);
+			}
 		}
 
 		check_children_progressing();

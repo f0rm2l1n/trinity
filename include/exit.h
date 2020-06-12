@@ -21,7 +21,8 @@ enum exit_reasons {
 	EXIT_LOCKING_CATASTROPHE = 15,
 	EXIT_LOGFILE_OPEN_ERROR = 16,
 
-	NUM_EXIT_REASONS = 17
+	NUM_EXIT_REASONS = 17,
+	EXIT_REACHED_TIME = 18
 };
 
 static const char *reasons[NUM_EXIT_REASONS] = {

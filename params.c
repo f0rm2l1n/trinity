@@ -61,6 +61,9 @@ char *logging_args = NULL;
 unsigned int kernel_taint_mask = 0xFFFFFFFF;
 bool kernel_taint_param_occured = FALSE;
 
+unsigned long diedtime = 0;	// minutes
+bool user_set_diedtime = FALSE;
+
 void enable_disable_fd_usage(void)
 {
 	//TODO: Build this dynamically
@@ -95,6 +98,8 @@ static void usage(void)
 	outputerr(" -c#,@: target specific syscall (takes syscall name as parameter and optionally 32 or 64 as bit-width. Default:both).\n");
 	outputerr(" -N#: do # syscalls then exit.\n");
 	outputerr(" -s#: use # as random seed.\n");
+	outputerr(" -t#: use # as time bound(miniutes).\n");
+
 	exit(EXIT_SUCCESS);
 }
 
@@ -309,6 +314,11 @@ void parse_args(int argc, char *argv[])
 				dropprivs = TRUE;
 			else
 				outputstd("Already running unprivileged, can't drop privs\n");
+			break;
+
+		case 't':
+			diedtime = strtol(optarg, NULL, 10);
+			user_set_diedtime = TRUE;
 			break;
 
 		case 0:

@@ -56,4 +56,8 @@ extern bool kernel_taint_param_occured;
 
 extern unsigned int user_specified_children;
 
+
+extern unsigned long diedtime;	// minutes
+extern bool user_set_diedtime;
+
 void enable_disable_fd_usage(void);
