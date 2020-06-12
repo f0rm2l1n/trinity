@@ -725,7 +725,7 @@ void main_loop(void)
 
 		while (check_all_locks() == TRUE) {
 			reap_dead_kids();
-			if (shm->exit_reason == EXIT_REACHED_COUNT)
+			if (shm->exit_reason == EXIT_REACHED_COUNT || shm->exit_reason == EXIT_REACHED_TIME)
 				kill_all_kids();
 		}
 
@@ -738,7 +738,8 @@ void main_loop(void)
 		if (user_set_diedtime) {
 			time_t fuzz_check_time = time(NULL);
 			unsigned long delay = fuzz_check_time - fuzz_start_time;
-			if (delay / 60 > diedtime) {
+			shm->stats.duration = delay / 10;
+			if (shm->stats.duration > diedtime) {
 				output(0, "Reached time limit %lu. Telling children to exit.\n", diedtime);
 				panic(EXIT_REACHED_TIME);
 			}
@@ -773,7 +774,6 @@ void main_loop(void)
 			output(0, "exit_reason=%d, but %d children still running.\n",
 				shm->exit_reason, shm->running_childs);
 		}
-
 		/* Wait for all the children to exit. */
 		while (shm->running_childs > 0) {
 			taint_check();

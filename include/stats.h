@@ -9,6 +9,9 @@ struct stats_s {
 
 	/* Counts to tell if we're making progress or not. */
 	unsigned long previous_op_count;	/* combined total of all children */
+
+	// patching
+	unsigned long duration;
 };
 
 void dump_stats(void);

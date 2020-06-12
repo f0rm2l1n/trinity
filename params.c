@@ -98,12 +98,12 @@ static void usage(void)
 	outputerr(" -c#,@: target specific syscall (takes syscall name as parameter and optionally 32 or 64 as bit-width. Default:both).\n");
 	outputerr(" -N#: do # syscalls then exit.\n");
 	outputerr(" -s#: use # as random seed.\n");
-	outputerr(" -t#: use # as time bound(miniutes).\n");
+	outputerr(" -k#: use # as time bound(miniutes).\n");
 
 	exit(EXIT_SUCCESS);
 }
 
-static const char paramstr[] = "a:b:c:C:dDE:g:hIl:LN:P:qr:s:ST:V:vx:X";
+static const char paramstr[] = "a:b:c:C:dDE:g:hI:k:l:LN:P:qr:s:ST:V:vx:X";
 
 static const struct option longopts[] = {
 	{ "arch", required_argument, NULL, 'a' },
@@ -133,6 +133,7 @@ static const struct option longopts[] = {
 	{ "syslog", no_argument, NULL, 'S' },
 	{ "verbose", no_argument, NULL, 'v' },
 	{ "victims", required_argument, NULL, 'V' },
+	{ "kill-time", required_argument, NULL, 'k'},
 	{ NULL, 0, NULL, 0 } };
 
 static void parse_logging(void)
@@ -316,7 +317,7 @@ void parse_args(int argc, char *argv[])
 				outputstd("Already running unprivileged, can't drop privs\n");
 			break;
 
-		case 't':
+		case 'k':
 			diedtime = strtol(optarg, NULL, 10);
 			user_set_diedtime = TRUE;
 			break;

@@ -50,6 +50,8 @@ void init_shm(void)
 
 	shm->stats.op_count = 0;
 
+	shm->stats.duration = 0;
+
 	shm->seed = init_seed(seed);
 
 	childptrslen = max_children * sizeof(struct childdata *);

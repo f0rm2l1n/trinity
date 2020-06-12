@@ -95,6 +95,10 @@ void lock(lock_t *_lock)
 			/* Ok, we're a child pid. If we reached the limit, just exit */
 			if (shm->exit_reason == EXIT_REACHED_COUNT)
 				_exit(EXIT_SUCCESS);
+			
+			// copy
+			if (shm->exit_reason == EXIT_REACHED_TIME)
+				_exit(EXIT_SUCCESS);
 
 			/* if something bad happened, like main crashed,
 			 * we don't want to spin forever, so just get out.

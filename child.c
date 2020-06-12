@@ -429,6 +429,13 @@ void child_process(struct childdata *child, int childno)
 				goto out;
 			}
 		}
+
+		if (user_set_diedtime) {
+			if (shm->stats.duration >= diedtime) {
+				shm->exit_reason = EXIT_REACHED_TIME;
+				goto out;
+			}
+		}
 	}
 
 	enable_coredumps();

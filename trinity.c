@@ -91,6 +91,7 @@ static int set_exit_code(enum exit_reasons reason)
 	 * pragma's are just as ugly imo. */
 	case STILL_RUNNING:
 	case EXIT_REACHED_COUNT:
+	case EXIT_REACHED_TIME:
 	case EXIT_SIGINT:
 	case NUM_EXIT_REASONS:
 		break;
