@@ -738,7 +738,7 @@ void main_loop(void)
 		if (user_set_diedtime) {
 			time_t fuzz_check_time = time(NULL);
 			unsigned long delay = fuzz_check_time - fuzz_start_time;
-			shm->stats.duration = delay / 10;
+			shm->stats.duration = delay / 60;
 			if (shm->stats.duration > diedtime) {
 				output(0, "Reached time limit %lu. Telling children to exit.\n", diedtime);
 				panic(EXIT_REACHED_TIME);
