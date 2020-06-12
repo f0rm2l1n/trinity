@@ -28,6 +28,8 @@
 #include "uid.h"
 #include "version.h"
 
+#define _DEBUG_ 1
+
 pid_t mainpid;
 
 char *progname = NULL;
@@ -113,19 +115,33 @@ int main(int argc, char* argv[])
 	// 即默认的子进程数目为CPU数目*4
 
 	select_syscall_tables();
-
+#ifdef _DEBUG_
+	printf("[~] Done select syscall tables...\n");
+#endif
 	create_shm();
-
+#ifdef _DEBUG
+	printf("[~] Done create shm...\n");
+#endif
 	parse_args(argc, argv);
-
+#ifdef _DEBUG
+	printf("[~] Done parse args...\n");
+#endif
 	init_uids();
-
+#ifdef _DEBUG
+	printf("[~] Done init uids...\n");
+#endif
 	change_tmp_dir();
-
+#ifdef _DEBUG
+	printf("[~] Done change tmp dir...\n");
+#endif
 	init_shm();
-
+#ifdef _DEBUG
+	printf("[~] Done init share memory...\n");
+#endif
 	init_taint_checking();
-
+#ifdef _DEBUG
+	printf("[~] Done init taint checking...\n");
+#endif
 	if (munge_tables() == FALSE) {
 		ret = EXIT_FAILURE;
 		goto out;
@@ -147,29 +163,50 @@ int main(int argc, char* argv[])
 	}
 
 	init_syscalls();
-
+#ifdef _DEBUG
+	printf("[~] Done init syscalls...\n");
+#endif
 	do_uid0_check();
-
+#ifdef _DEBUG
+	printf("[~] Done uid0 checking...\n");
+#endif
 	if (do_specific_domain == TRUE)
 		find_specific_domain(specific_domain_optarg);
 
 	pids_init();
-
+#ifdef _DEBUG
+	printf("[~] Done pids init...\n");
+#endif
 	init_logging();
-
+#ifdef _DEBUG
+	printf("[~] Done logging init...\n");
+#endif
 	init_object_lists(OBJ_GLOBAL);
-
+#ifdef _DEBUG
+	printf("[~] Done objects lists init...\n");
+#endif
 	setup_initial_mappings();
-
+#ifdef _DEBUG
+	printf("[~] Done mapping initialing...\n");
+#endif
 	parse_devices();
-
+#ifdef _DEBUG
+	printf("[~] Done device parsing...\n");
+#endif
 	/* FIXME: Some better object construction method needed. */
 	create_futexes();
+#ifdef _DEBUG
+	printf("[~] Done futex creating...\n");
+#endif
 	create_sysv_shms();
-
+#ifdef _DEBUG
+	printf("[~] Done sysv share memory creating...\n");
+#endif
 
 	setup_main_signals();
-
+#ifdef _DEBUG
+	printf("[~] Done main signals setup...\n");
+#endif
 	no_bind_to_cpu = RAND_BOOL();
 
 	prctl(PR_SET_NAME, (unsigned long) &taskname);
@@ -182,7 +219,9 @@ int main(int argc, char* argv[])
 	}
 
 	setup_ftrace();
-
+#ifdef _DEBUG
+	printf("[~] Done ftrace setup...\n");
+#endif
 	main_loop();
 
 	destroy_global_objects();
